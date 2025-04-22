@@ -14,6 +14,25 @@
       text-align: center;
       overflow-x: hidden; /* Sprječava horizontalno pomicanje */
     }
+    
+    /* Minimalistički dizajn sa strane */
+    .side-design {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 30px;
+      background: linear-gradient(to bottom, #000000, #333333);
+      z-index: -1;
+    }
+    
+    .left-side {
+      left: 0;
+    }
+    
+    .right-side {
+      right: 0;
+    }
+
     .container {
       max-width: 800px;
       margin: 50px auto;
@@ -22,22 +41,14 @@
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
-    /* Crna srca */
-    .heart {
-      color: #000000; /* Crna boja srca */
-      font-size: 24px; /* Manja srca */
-      margin: 5px;
-      transition: transform 0.2s ease-in-out; /* Animacija za hover efekt */
-    }
-    .heart:hover {
-      transform: scale(1.2); /* Uvećaj srce kad se pređe mišem preko njega */
-    }
+
     video {
       width: 100%;
       max-width: 700px;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
+
     iframe {
       margin-top: 30px;
       width: 100%;
@@ -46,24 +57,14 @@
       border: none;
       border-radius: 12px;
     }
-    .heart-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .heart-container .heart {
-      margin: 5px;
-    }
   </style>
 </head>
 <body>
-  <div class="heart-container">
-    <!-- Crna srca oko sadržaja -->
-    <span class="heart">❤️</span>
-    <span class="heart">❤️</span>
-    <span class="heart">❤️</span>
-  </div>
-  
+
+  <!-- Dizajn sa strane -->
+  <div class="side-design left-side"></div>
+  <div class="side-design right-side"></div>
+
   <div class="container">
     <!-- Video player s automatskim pokretanjem -->
     <video controls autoplay muted>
@@ -75,11 +76,5 @@
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdIlJpMqOHa2Fo6y-Bxcb3rnR8bI2nOJ97ShpChBglK_tsDYg/viewform?embedded=true">Loading…</iframe>
   </div>
 
-  <div class="heart-container">
-    <!-- Dodatna crna srca u dnu -->
-    <span class="heart">❤️</span>
-    <span class="heart">❤️</span>
-    <span class="heart">❤️</span>
-  </div>
 </body>
 </html>
