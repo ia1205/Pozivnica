@@ -13,38 +13,51 @@
       color: #333;
       text-align: center;
       overflow-x: hidden;
-      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 24 24' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 20px 20px;
+      background: #f3f3f3;
     }
 
-    .side-design {
+    .animated-heart {
       position: fixed;
-      top: 0;
-      bottom: 0;
-      width: 10px;
-      background: #000;
+      width: 24px;
+      height: 24px;
+      background-image: url("data:image/svg+xml,%3Csvg fill='white' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+      background-size: cover;
+      opacity: 0.2;
+      animation: float 6s ease-in-out infinite;
       z-index: -1;
     }
 
-    .left-side {
-      left: 0;
+    .heart1 {
+      top: 20%;
+      left: 5%;
+      animation-delay: 0s;
     }
 
-    .right-side {
-      right: 0;
+    .heart2 {
+      top: 40%;
+      right: 5%;
+      animation-delay: 2s;
     }
 
-    @media (max-width: 768px) {
-      .side-design {
-        display: none;
+    .heart3 {
+      bottom: 15%;
+      left: 10%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-10px) scale(1.1);
       }
     }
 
     .container {
       max-width: 800px;
-      margin: 80px auto; /* dodan veći razmak gore */
-      padding: 20px;
+      margin: 80px auto;
+      padding: 30px;
       background-color: #fff;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -55,10 +68,11 @@
       max-width: 700px;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px; /* razmak ispod videa */
     }
 
     iframe {
-      margin-top: 30px;
+      margin-top: 10px;
       width: 100%;
       max-width: 700px;
       height: 1500px;
@@ -70,7 +84,7 @@
     @media (max-width: 768px) {
       .container {
         margin: 40px 20px;
-        padding: 15px;
+        padding: 20px;
         box-shadow: none;
       }
 
@@ -82,9 +96,10 @@
 </head>
 <body>
 
-  <!-- Bočne crte -->
-  <div class="side-design left-side"></div>
-  <div class="side-design right-side"></div>
+  <!-- Minimalistička bijela srca u pozadini -->
+  <div class="animated-heart heart1"></div>
+  <div class="animated-heart heart2"></div>
+  <div class="animated-heart heart3"></div>
 
   <div class="container">
     <!-- Video -->
@@ -93,9 +108,5 @@
       Vaš preglednik ne podržava video prikaz.
     </video>
 
-    <!-- Nova Google Forms -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSceheuFMF_Qlfp2_VxD9W0VO6_Wbo5KBkhkSbJByivEbH3TrQ/viewform?embedded=true">Loading…</iframe>
-  </div>
-
-</body>
-</html>
+    <!-- Google Forms -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSce
