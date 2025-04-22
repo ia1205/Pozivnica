@@ -143,3 +143,45 @@
   </div>
 </body>
 </html>
+ <!-- Forma -->
+    <form action="https://formspree.io/f/xdkgoerv" method="POST" onsubmit="showThankYouMessage(event)">
+      <label for="ime">Ime i prezime:</label>
+      <input type="text" id="ime" name="Ime i prezime" required>
+
+      <label>Dolazak:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="Dolazak" value="DA!" required onchange="toggleGuests(true)"> DA!</label>
+        <label><input type="radio" name="Dolazak" value="Nažalost, ne" onchange="toggleGuests(false)"> Nažalost, ne</label>
+      </div>
+
+      <div id="gostiDiv">
+        <label for="gosti">Tko dolazi s tobom?</label>
+        <input type="text" id="gosti" name="Tko dolazi s tobom?">
+      </div>
+
+      <button type="submit">Pošalji</button>
+    </form>
+
+    <div class="thank-you" id="thank-you-message">Hvala na odgovoru! 💌</div>
+  </div>
+
+  <script>
+    function showThankYouMessage(event) {
+      event.preventDefault();
+      document.querySelector('form').style.display = 'none';
+      document.getElementById('thank-you-message').classList.add('active');
+    }
+
+    function toggleGuests(show) {
+      const div = document.getElementById('gostiDiv');
+      const input = document.getElementById('gosti');
+      div.style.display = show ? 'block' : 'none';
+      input.required = show;
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      toggleGuests(false); // sakrij na početku
+    });
+  </script>
+</body>
+</html>
