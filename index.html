@@ -25,6 +25,7 @@
       width: 100%;
       padding: 60px 20px;
       animation: fadeIn 1.5s ease;
+      position: relative; /* Ensures that absolute positioning for heart is relative to container */
     }
 
     h1 {
@@ -142,10 +143,10 @@
     /* Heart decoration */
     .heart-decoration {
       position: absolute;
-      top: 50px;
+      top: -100px; /* Adjust position to avoid overlap with heading */
       left: 50%;
       transform: translateX(-50%);
-      font-size: 4rem;
+      font-size: 5rem;
       animation: heartBeat 2s infinite;
     }
 
