@@ -9,28 +9,33 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f3f3f3; /* Svijetla pozadina */
-      color: #333; /* Tamna boja teksta */
+      background-color: #f3f3f3;
+      color: #333;
       text-align: center;
-      overflow-x: hidden; /* Sprječava horizontalno pomicanje */
+      overflow-x: hidden;
     }
 
-    /* Minimalistički dizajn sa bočnim vertikalnim crtama */
     .side-design {
-      position: fixed; /* Fiksna pozicija, uvijek na ekranu */
+      position: fixed;
       top: 0;
       bottom: 0;
-      width: 10px; /* Manja debljina za crte */
-      background: linear-gradient(to bottom, #000000, #000000); /* Jednobojne crne crte */
+      width: 10px;
+      background: #000;
       z-index: -1;
     }
-    
+
     .left-side {
       left: 0;
     }
-    
+
     .right-side {
       right: 0;
+    }
+
+    @media (max-width: 768px) {
+      .side-design {
+        display: none;
+      }
     }
 
     .container {
@@ -57,22 +62,32 @@
       border: none;
       border-radius: 12px;
     }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px;
+        padding: 15px;
+        box-shadow: none;
+      }
+
+      iframe {
+        height: 500px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Dizajn sa strane (lijeva i desna bočna crta koja je fiksna) -->
+  <!-- Bočne crte (ne prikazuju se na mobitelima) -->
   <div class="side-design left-side"></div>
   <div class="side-design right-side"></div>
 
   <div class="container">
-    <!-- Video player s automatskim pokretanjem -->
-    <video controls autoplay muted>
+    <video controls autoplay muted playsinline>
       <source src="video.mp4" type="video/mp4">
       Vaš preglednik ne podržava video prikaz.
     </video>
-    
-    <!-- Google Form -->
+
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdIlJpMqOHa2Fo6y-Bxcb3rnR8bI2nOJ97ShpChBglK_tsDYg/viewform?embedded=true">Loading…</iframe>
   </div>
 
