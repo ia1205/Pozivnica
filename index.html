@@ -13,33 +13,6 @@
       color: #333;
       text-align: center;
       overflow-x: hidden;
-      background: #f3f3f3;
-    }
-
-    /* Minimalna animirana srca */
-    .heart {
-      position: fixed;
-      width: 24px;
-      height: 24px;
-      background-image: url("data:image/svg+xml,%3Csvg fill='white' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
-      background-size: cover;
-      opacity: 0.08;
-      animation: float 8s ease-in-out infinite;
-      z-index: -1;
-    }
-
-    .heart1 { top: 15%; left: 5%; animation-delay: 0s; }
-    .heart2 { top: 40%; right: 6%; animation-delay: 2s; }
-    .heart3 { bottom: 20%; left: 8%; animation-delay: 4s; }
-    .heart4 { bottom: 10%; right: 10%; animation-delay: 6s; }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(-8px) scale(1.1);
-      }
     }
 
     .container {
@@ -49,6 +22,8 @@
       background-color: #fff;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
     }
 
     video {
@@ -60,7 +35,6 @@
     }
 
     iframe {
-      margin-top: 10px;
       width: 100%;
       max-width: 700px;
       height: 1500px;
@@ -69,39 +43,27 @@
       overflow: hidden;
     }
 
-    @media (max-width: 768px) {
-      .container {
-        margin: 40px 20px;
-        padding: 20px;
-        box-shadow: none;
-      }
+    .floating-heart {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      fill: white;
+      opacity: 0.15;
+      animation: float 6s infinite ease-in-out;
+    }
 
-      iframe {
-        height: 1700px;
+    .heart1 { top: 50px; left: -30px; animation-delay: 0s; }
+    .heart2 { top: 150px; right: -30px; animation-delay: 1.5s; }
+    .heart3 { bottom: 100px; left: -25px; animation-delay: 3s; }
+    .heart4 { bottom: 50px; right: -25px; animation-delay: 4.5s; }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
       }
     }
-  </style>
-</head>
-<body>
 
-  <!-- Bijela minimalistička srca -->
-  <div class="heart heart1"></div>
-  <div class="heart heart2"></div>
-  <div class="heart heart3"></div>
-  <div class="heart heart4"></div>
-
-  <div class="container">
-    <!-- Video -->
-    <video autoplay muted controls playsinline>
-      <source src="video.mp4" type="video/mp4">
-      Vaš preglednik ne podržava video prikaz.
-    </video>
-
-    <!-- Google Forms -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSceheuFMF_Qlfp2_VxD9W0VO6_Wbo5KBkhkSbJByivEbH3TrQ/viewform?embedded=true">
-      Učitavanje…
-    </iframe>
-  </div>
-
-</body>
-</html>
+    @media (max-width
