@@ -14,18 +14,60 @@
       background: linear-gradient(to bottom, #f9f5f0, #fdfaf7);
       color: #4e3b2c;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
       text-align: center;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    .background-heart {
+      position: fixed;
+      width: 80px;
+      height: 80px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/White_Heart_Symbol.svg/2048px-White_Heart_Symbol.svg.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.1;
+      animation: float 10s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    .background-heart:nth-child(1) {
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+    }
+
+    .background-heart:nth-child(2) {
+      top: 30%;
+      right: 10%;
+      animation-delay: 3s;
+    }
+
+    .background-heart:nth-child(3) {
+      bottom: 15%;
+      left: 15%;
+      animation-delay: 6s;
+    }
+
+    .background-heart:nth-child(4) {
+      bottom: 20%;
+      right: 5%;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+      100% { transform: translateY(0) rotate(0deg); }
     }
 
     .container {
       max-width: 700px;
       width: 100%;
       padding: 60px 20px;
-      animation: fadeIn 1.5s ease;
-      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -47,8 +89,8 @@
     form {
       background-color: #fff;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -66,7 +108,7 @@
       padding: 12px;
       font-size: 16px;
       border: 1px solid #ddd;
-      border-radius: 8px;
+      border-radius: 10px;
       width: 100%;
       background-color: #fefefe;
       transition: box-shadow 0.3s;
@@ -102,18 +144,6 @@
       background-color: #927361;
     }
 
-    /* Animations */
-    @keyframes fadeIn {
-      0% {opacity: 0;}
-      100% {opacity: 1;}
-    }
-
-    @keyframes fadeInUp {
-      0% {opacity: 0; transform: translateY(20px);}
-      100% {opacity: 1; transform: translateY(0);}
-    }
-
-    /* Custom thank you message */
     .thank-you {
       display: none;
       font-size: 1.5rem;
@@ -125,14 +155,25 @@
     .thank-you.active {
       display: block;
     }
+
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
+  <!-- Background hearts -->
+  <div class="background-heart"></div>
+  <div class="background-heart"></div>
+  <div class="background-heart"></div>
+  <div class="background-heart"></div>
+
   <div class="container">
     <h1>Iva & Emil – Pozivnica</h1>
 
     <!-- Video -->
-    <video autoplay muted controls>
+    <video autoplay muted playsinline controls>
       <source src="video.mp4" type="video/mp4" />
       Vaš preglednik ne podržava video prikaz.
     </video>
@@ -144,37 +185,39 @@
 
       <label>Dolazak:</label>
       <div class="radio-group">
-        <label><input type="radio" name="Dolazak" value="DA!" required> DA!</label>
-        <label><input type="radio" name="Dolazak" value="Nažalost, ne" onchange="toggleGuestField(false)"> Nažalost, ne</label>
+        <label><input type="radio" name="Dolazak" value="DA!" onclick="toggleMessage(true)" required> DA!</label>
+        <label><input type="radio" name="Dolazak" value="Nažalost, ne" onclick="toggleMessage(false)"> Nažalost, ne</label>
       </div>
 
       <label for="gosti">Tko dolazi s tobom?</label>
-      <input type="text" id="gosti" name="Tko dolazi s tobom?" required>
+      <input type="text" id="gosti" name="Tko dolazi s tobom?">
 
       <button type="submit">Pošalji</button>
     </form>
 
     <!-- Thank You Message -->
-    <div class="thank-you" id="thank-you-message">Hvala što ste nas obavijestili! Nadamo se da ćemo vas uskoro vidjeti. 💖</div>
+    <div class="thank-you" id="thank-you-message">
+      Hvala na prijavi! Veselimo se vašem dolasku! 💖
+    </div>
   </div>
 
   <script>
-    function showThankYouMessage(event) {
-      event.preventDefault(); // Prevent form submission
-      document.querySelector('.thank-you').classList.add('active'); // Show thank you message
-    }
-
-    function toggleGuestField(isComing) {
+    function toggleMessage(isComing) {
+      const message = document.getElementById('thank-you-message');
       const guestField = document.getElementById('gosti');
-      const thankYouMessage = document.getElementById('thank-you-message');
+
+      guestField.required = false; // nikad nije required
 
       if (isComing) {
-        guestField.required = true;
-        thankYouMessage.textContent = "Veselimo se vašem dolasku! 💖";
+        message.textContent = 'Hvala na prijavi! Veselimo se vašem dolasku! 💖';
       } else {
-        guestField.required = false;
-        thankYouMessage.textContent = "Hvala što ste nas obavijestili! Nadamo se da ćemo vas uskoro vidjeti. 💖";
+        message.textContent = 'Hvala što ste nas obavijestili! Nadamo se da ćemo vas uskoro vidjeti. 💌';
       }
+    }
+
+    function showThankYouMessage(event) {
+      event.preventDefault();
+      document.getElementById('thank-you-message').classList.add('active');
     }
   </script>
 </body>
