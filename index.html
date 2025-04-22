@@ -12,13 +12,12 @@
       background-color: #fafafa;
       text-align: center;
     }
-    .invitation {
+    .container {
       max-width: 800px;
       margin: 20px auto;
       padding: 10px;
     }
     video {
-      margin-top: 30px;
       width: 100%;
       max-width: 700px;
       border-radius: 12px;
@@ -34,15 +33,13 @@
   </style>
 </head>
 <body>
-  <div class="invitation">
-
-    <!-- Video player -->
-    <video controls>
+  <div class="container">
+    <!-- Video player that auto-plays -->
+    <video controls autoplay>
       <source src="video.mp4" type="video/mp4">
       Vaš preglednik ne podržava video prikaz.
     </video>
-
-    <!-- Google Forms -->
+    <!-- Google Form -->
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdIlJpMqOHa2Fo6y-Bxcb3rnR8bI2nOJ97ShpChBglK_tsDYg/viewform?embedded=true">Loading…</iframe>
   </div>
 </body>
