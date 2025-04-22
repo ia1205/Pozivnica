@@ -5,69 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pozivnica – Iva & Emil</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Quicksand:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville&family=Quicksand:wght@400;600&display=swap');
 
     body {
       margin: 0;
       padding: 0;
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom, #fdf8f3, #fbf4ee);
+      background: #fefaf6;
       color: #4e3b2c;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       overflow-x: hidden;
+      position: relative;
     }
 
     .container {
       max-width: 700px;
       width: 100%;
       padding: 60px 20px;
+      animation: fadeIn 1.5s ease;
       position: relative;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      z-index: 10;
     }
 
     h1 {
       font-family: 'Libre Baskerville', serif;
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 30px;
       color: #3e2f23;
+      animation: fadeInUp 1s ease;
     }
 
-    .heart-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      overflow: hidden;
+    /* Pozivnica */
+    .invitation-card {
+      background: #fdfdfc;
+      padding: 40px 30px;
+      border-radius: 20px;
+      margin-bottom: 40px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #3e2f23;
+      margin-bottom: 10px;
     }
 
     .heart {
-      position: absolute;
-      color: white;
-      opacity: 0.1;
-      font-size: 50px;
-      animation: floatHeart 12s infinite ease-in-out;
+      font-size: 1.5rem;
+      color: #a18875;
+      animation: heartBeat 2s infinite;
     }
 
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-      100% {
-        transform: translateY(-100vh) rotate(360deg);
-      }
+    .quote {
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #4e3b2c;
+      margin: 20px 0;
     }
 
-    video {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      margin-bottom: 50px;
+    .date {
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin: 30px 0;
+      color: #3e2f23;
     }
 
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .event {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      color: #3e2f23;
+    }
+
+    .time {
+      font-weight: bold;
+      min-width: 50px;
+      text-align: right;
+    }
+
+    .line {
+      color: #a18875;
+      font-weight: bold;
+    }
+
+    .desc {
+      font-style: normal;
+    }
+
+    /* Form */
     form {
       background-color: #fff;
       padding: 30px;
@@ -76,6 +116,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      animation: fadeInUp 1.5s ease;
     }
 
     label {
@@ -136,35 +177,95 @@
     .thank-you.active {
       display: block;
     }
+
+    /* Animacije */
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes heartBeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Srca u pozadini */
+    .floating-heart {
+      position: absolute;
+      font-size: 20px;
+      color: #ffffffbb;
+      animation: float 10s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+      50% { transform: translateY(-50px) rotate(20deg); opacity: 0.6; }
+      100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+    }
+
+    .floating-heart:nth-child(1) { top: 10%; left: 5%; font-size: 32px; animation-delay: 0s; }
+    .floating-heart:nth-child(2) { top: 40%; right: 10%; font-size: 24px; animation-delay: 2s; }
+    .floating-heart:nth-child(3) { top: 70%; left: 10%; font-size: 28px; animation-delay: 4s; }
+    .floating-heart:nth-child(4) { top: 20%; right: 5%; font-size: 36px; animation-delay: 6s; }
+    .floating-heart:nth-child(5) { bottom: 10%; left: 50%; font-size: 22px; animation-delay: 8s; }
   </style>
 </head>
 <body>
-  <!-- Background hearts -->
-  <div class="heart-bg">
-    <div class="heart" style="left: 10%; top: 80%;">&#10084;</div>
-    <div class="heart" style="left: 70%; top: 90%; font-size: 40px;">&#10084;</div>
-    <div class="heart" style="left: 30%; top: 95%; font-size: 60px;">&#10084;</div>
-  </div>
+  <!-- Srca u pozadini -->
+  <div class="floating-heart">♡</div>
+  <div class="floating-heart">♡</div>
+  <div class="floating-heart">♡</div>
+  <div class="floating-heart">♡</div>
+  <div class="floating-heart">♡</div>
 
   <div class="container">
     <h1>Iva & Emil – Pozivnica</h1>
 
-    <video autoplay muted playsinline controls>
-      <source src="video.mp4" type="video/mp4" />
-      Vaš preglednik ne podržava video prikaz.
-    </video>
+    <div class="invitation-card">
+      <h2 class="names">Iva <span class="heart">♥</span> Emil</h2>
+      <p class="quote">S vjerom u srcu i ljubavi koja nas vodi,<br>pozivamo vas da s nama stvarate uspomene.</p>
+      <p class="date"><strong>20. RUJNA<br>2025.</strong></p>
+      <div class="timeline">
+        <div class="event">
+          <span class="time">15:30</span>
+          <span class="line">|</span>
+          <span class="desc">Okupljanje, Stari Mornar</span>
+        </div>
+        <div class="event">
+          <span class="time">18:00</span>
+          <span class="line">|</span>
+          <span class="desc">Misa, Crkva sv. Marka (Neslanovac)</span>
+        </div>
+        <div class="event">
+          <span class="time">20:00</span>
+          <span class="line">|</span>
+          <span class="desc">Večera i slavlje, Paviljon Idra</span>
+        </div>
+      </div>
+    </div>
 
-    <form action="https://formspree.io/f/xdkgoerv" method="POST" onsubmit="return handleFormSubmit(event)">
+    <!-- Forma -->
+    <form action="https://formspree.io/f/xdkgoerv" method="POST" onsubmit="showThankYouMessage(event)">
       <label for="ime">Ime i prezime:</label>
       <input type="text" id="ime" name="Ime i prezime" required>
 
       <label>Dolazak:</label>
       <div class="radio-group">
-        <label><input type="radio" name="Dolazak" value="DA!" required onchange="toggleGuestField(true)"> DA!</label>
-        <label><input type="radio" name="Dolazak" value="Nažalost, ne" onchange="toggleGuestField(false)"> Nažalost, ne</label>
+        <label><input type="radio" name="Dolazak" value="DA!" required onchange="toggleGuests(true)"> DA!</label>
+        <label><input type="radio" name="Dolazak" value="Nažalost, ne" onchange="toggleGuests(false)"> Nažalost, ne</label>
       </div>
 
-      <div id="guest-field">
+      <div id="gostiDiv">
         <label for="gosti">Tko dolazi s tobom?</label>
         <input type="text" id="gosti" name="Tko dolazi s tobom?">
       </div>
@@ -172,47 +273,26 @@
       <button type="submit">Pošalji</button>
     </form>
 
-    <div class="thank-you" id="thank-you-message"></div>
+    <div class="thank-you" id="thank-you-message">Hvala na odgovoru! 💌</div>
   </div>
 
   <script>
-    function toggleGuestField(show) {
-      const guestInput = document.getElementById('gosti');
-      const guestField = document.getElementById('guest-field');
-      if (show) {
-        guestInput.required = true;
-        guestField.style.display = 'block';
-      } else {
-        guestInput.required = false;
-        guestField.style.display = 'none';
-      }
-    }
-
-    function handleFormSubmit(event) {
+    function showThankYouMessage(event) {
       event.preventDefault();
-      const form = event.target;
-      const data = new FormData(form);
-      const dolazak = data.get('Dolazak');
-
-      fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        form.style.display = 'none';
-        const message = document.getElementById('thank-you-message');
-        if (dolazak === 'DA!') {
-          message.textContent = 'Hvala na prijavi! Veselimo se vašem dolasku! 💖';
-        } else {
-          message.textContent = 'Hvala na odgovoru. Šteta što ne možeš doći 😢';
-        }
-        message.classList.add('active');
-      }).catch(error => {
-        alert('Greška prilikom slanja. Pokušaj ponovno.');
-      });
-
-      return false;
+      document.querySelector('form').style.display = 'none';
+      document.getElementById('thank-you-message').classList.add('active');
     }
+
+    function toggleGuests(show) {
+      const div = document.getElementById('gostiDiv');
+      const input = document.getElementById('gosti');
+      div.style.display = show ? 'block' : 'none';
+      input.required = show;
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      toggleGuests(false); // sakrij na početku
+    });
   </script>
 </body>
 </html>
