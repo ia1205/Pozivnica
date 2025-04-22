@@ -22,10 +22,15 @@
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
+    /* Crna srca */
     .heart {
-      color: black;
-      font-size: 40px;
-      margin: 10px;
+      color: #000000; /* Crna boja srca */
+      font-size: 24px; /* Manja srca */
+      margin: 5px;
+      transition: transform 0.2s ease-in-out; /* Animacija za hover efekt */
+    }
+    .heart:hover {
+      transform: scale(1.2); /* Uvećaj srce kad se pređe mišem preko njega */
     }
     video {
       width: 100%;
@@ -71,7 +76,7 @@
   </div>
 
   <div class="heart-container">
-    <!-- Dodatna srca u dnu -->
+    <!-- Dodatna crna srca u dnu -->
     <span class="heart">❤️</span>
     <span class="heart">❤️</span>
     <span class="heart">❤️</span>
