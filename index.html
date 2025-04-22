@@ -3,78 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pozivnica – Iva & Emil</title>
+  <title>Pozivnica</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville&family=Quicksand:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville&family=Quicksand:wght@400;600&family=Parisienne&display=swap');
 
     body {
       margin: 0;
       padding: 0;
       font-family: 'Quicksand', sans-serif;
-      background: #fefaf6;
-      color: #4e3b2c;
+      background: #f8f8f8;
+      color: #2f2f2f;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      overflow-x: hidden;
       position: relative;
+      overflow-x: hidden;
     }
 
     .container {
       max-width: 700px;
-      width: 100%;
       padding: 60px 20px;
-      animation: fadeIn 1.5s ease;
-      position: relative;
-      background: rgba(255, 255, 255, 0.8);
+      background: white;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       z-index: 10;
+      position: relative;
     }
 
     h1 {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 2rem;
-      margin-bottom: 30px;
+      font-family: 'Parisienne', cursive;
+      font-size: 3rem;
       color: #3e2f23;
-      animation: fadeInUp 1s ease;
+      margin-bottom: 40px;
+      animation: fadeInDown 1.5s ease;
     }
 
-    /* Pozivnica */
     .invitation-card {
-      background: #fdfdfc;
+      background: white;
       padding: 40px 30px;
       border-radius: 20px;
-      margin-bottom: 40px;
       animation: fadeIn 1.5s ease;
     }
 
     .names {
       font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: #3e2f23;
-      margin-bottom: 10px;
+      font-size: 4rem;
+      color: #000;
+      margin-bottom: 20px;
     }
 
     .heart {
-      font-size: 1.5rem;
-      color: #a18875;
-      animation: heartBeat 2s infinite;
+      font-size: 2rem;
+      color: #d6d6d6;
+      animation: heartBeat 3s infinite;
     }
 
     .quote {
       font-style: italic;
-      font-size: 1.1rem;
-      color: #4e3b2c;
+      font-size: 1.2rem;
+      color: #555;
       margin: 20px 0;
     }
 
     .date {
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       margin: 30px 0;
-      color: #3e2f23;
+      color: #000;
     }
 
     .timeline {
@@ -88,140 +84,43 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #3e2f23;
     }
 
-    .time {
-      font-weight: bold;
-      min-width: 50px;
-      text-align: right;
-    }
-
-    .line {
-      color: #a18875;
-      font-weight: bold;
-    }
-
-    .desc {
-      font-style: normal;
-    }
-
-    /* Form */
-    form {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      animation: fadeInUp 1.5s ease;
-    }
-
-    label {
-      font-weight: 600;
-      font-size: 16px;
-      color: #3f3228;
-      text-align: left;
-    }
-
-    input[type="text"], button {
-      padding: 12px;
-      font-size: 16px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      width: 100%;
-      background-color: #fefefe;
-      transition: box-shadow 0.3s;
-    }
-
-    input[type="text"]:focus {
-      box-shadow: 0 0 6px rgba(200, 170, 120, 0.4);
-      outline: none;
-    }
-
-    .radio-group {
-      display: flex;
-      gap: 20px;
-      margin-top: 8px;
-    }
-
-    .radio-group label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: normal;
-    }
-
-    button {
-      background-color: #a18875;
-      color: white;
-      cursor: pointer;
-      border: none;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background-color: #927361;
-    }
-
-    .thank-you {
-      display: none;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #a18875;
-      margin-top: 20px;
-    }
-
-    .thank-you.active {
-      display: block;
-    }
-
-    /* Animacije */
-    @keyframes fadeIn {
-      0% {opacity: 0;}
-      100% {opacity: 1;}
-    }
-
-    @keyframes fadeInUp {
-      0% {opacity: 0; transform: translateY(20px);}
-      100% {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes heartBeat {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-    }
-
-    /* Srca u pozadini */
     .floating-heart {
       position: absolute;
-      font-size: 20px;
-      color: #ffffffbb;
-      animation: float 10s infinite ease-in-out;
+      font-size: 40px;
+      color: #fff;
+      opacity: 0.3;
+      animation: float 12s infinite ease-in-out;
       z-index: 0;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
-      50% { transform: translateY(-50px) rotate(20deg); opacity: 0.6; }
-      100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+    .floating-heart:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .floating-heart:nth-child(2) { top: 40%; right: 10%; animation-delay: 2s; }
+    .floating-heart:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s; }
+    .floating-heart:nth-child(4) { top: 20%; right: 5%; animation-delay: 6s; }
+    .floating-heart:nth-child(5) { bottom: 5%; left: 50%; animation-delay: 8s; }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
     }
 
-    .floating-heart:nth-child(1) { top: 10%; left: 5%; font-size: 32px; animation-delay: 0s; }
-    .floating-heart:nth-child(2) { top: 40%; right: 10%; font-size: 24px; animation-delay: 2s; }
-    .floating-heart:nth-child(3) { top: 70%; left: 10%; font-size: 28px; animation-delay: 4s; }
-    .floating-heart:nth-child(4) { top: 20%; right: 5%; font-size: 36px; animation-delay: 6s; }
-    .floating-heart:nth-child(5) { bottom: 10%; left: 50%; font-size: 22px; animation-delay: 8s; }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-40px); }
+      100% { transform: translateY(0px); }
+    }
   </style>
 </head>
 <body>
-  <!-- Srca u pozadini -->
   <div class="floating-heart">♡</div>
   <div class="floating-heart">♡</div>
   <div class="floating-heart">♡</div>
@@ -229,70 +128,18 @@
   <div class="floating-heart">♡</div>
 
   <div class="container">
-    <h1>Iva & Emil – Pozivnica</h1>
+    <h1>Pozivnica</h1>
 
     <div class="invitation-card">
-      <h2 class="names">Iva <span class="heart">♥</span> Emil</h2>
+      <div class="names">Iva <span class="heart">♡</span> Emil</div>
       <p class="quote">S vjerom u srcu i ljubavi koja nas vodi,<br>pozivamo vas da s nama stvarate uspomene.</p>
-      <p class="date"><strong>20. RUJNA<br>2025.</strong></p>
+      <p class="date">20. RUJNA 2025.</p>
       <div class="timeline">
-        <div class="event">
-          <span class="time">15:30</span>
-          <span class="line">|</span>
-          <span class="desc">Okupljanje, Stari Mornar</span>
-        </div>
-        <div class="event">
-          <span class="time">18:00</span>
-          <span class="line">|</span>
-          <span class="desc">Misa, Crkva sv. Marka (Neslanovac)</span>
-        </div>
-        <div class="event">
-          <span class="time">20:00</span>
-          <span class="line">|</span>
-          <span class="desc">Večera i slavlje, Paviljon Idra</span>
-        </div>
+        <div class="event"><strong>15:30</strong> – Okupljanje, Stari Mornar</div>
+        <div class="event"><strong>18:00</strong> – Misa, Crkva sv. Marka (Neslanovac)</div>
+        <div class="event"><strong>20:00</strong> – Večera i slavlje, Paviljon Idra</div>
       </div>
     </div>
-
-    <!-- Forma -->
-    <form action="https://formspree.io/f/xdkgoerv" method="POST" onsubmit="showThankYouMessage(event)">
-      <label for="ime">Ime i prezime:</label>
-      <input type="text" id="ime" name="Ime i prezime" required>
-
-      <label>Dolazak:</label>
-      <div class="radio-group">
-        <label><input type="radio" name="Dolazak" value="DA!" required onchange="toggleGuests(true)"> DA!</label>
-        <label><input type="radio" name="Dolazak" value="Nažalost, ne" onchange="toggleGuests(false)"> Nažalost, ne</label>
-      </div>
-
-      <div id="gostiDiv">
-        <label for="gosti">Tko dolazi s tobom?</label>
-        <input type="text" id="gosti" name="Tko dolazi s tobom?">
-      </div>
-
-      <button type="submit">Pošalji</button>
-    </form>
-
-    <div class="thank-you" id="thank-you-message">Hvala na odgovoru! 💌</div>
   </div>
-
-  <script>
-    function showThankYouMessage(event) {
-      event.preventDefault();
-      document.querySelector('form').style.display = 'none';
-      document.getElementById('thank-you-message').classList.add('active');
-    }
-
-    function toggleGuests(show) {
-      const div = document.getElementById('gostiDiv');
-      const input = document.getElementById('gosti');
-      div.style.display = show ? 'block' : 'none';
-      input.required = show;
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      toggleGuests(false); // sakrij na početku
-    });
-  </script>
 </body>
 </html>
