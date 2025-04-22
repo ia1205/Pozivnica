@@ -15,18 +15,14 @@
       overflow-x: hidden; /* Sprječava horizontalno pomicanje */
     }
     
-    /* Minimalistički dizajn sa strane i na vrhu/dnu */
-    .side-design, .top-design, .bottom-design {
-      position: absolute;
-      background: linear-gradient(to bottom, #000000, #333333);
-      z-index: -1;
-    }
-    
-    /* Bočne linije */
+    /* Minimalistički dizajn sa bočnim vertikalnim crtama */
     .side-design {
+      position: absolute;
       top: 0;
       bottom: 0;
       width: 30px;
+      background: linear-gradient(to bottom, #000000, #333333);
+      z-index: -1;
     }
     
     .left-side {
@@ -35,22 +31,6 @@
     
     .right-side {
       right: 0;
-    }
-
-    /* Gornja linija */
-    .top-design {
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 30px;
-    }
-
-    /* Donja linija */
-    .bottom-design {
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 30px;
     }
 
     .container {
@@ -84,12 +64,6 @@
   <!-- Dizajn sa strane -->
   <div class="side-design left-side"></div>
   <div class="side-design right-side"></div>
-
-  <!-- Gornja crta -->
-  <div class="top-design"></div>
-
-  <!-- Donja crta -->
-  <div class="bottom-design"></div>
 
   <div class="container">
     <!-- Video player s automatskim pokretanjem -->
