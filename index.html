@@ -9,38 +9,72 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fafafa;
+      background-color: #f3f3f3; /* Svijetla pozadina */
+      color: #333; /* Tamna boja teksta */
       text-align: center;
+      overflow-x: hidden; /* Sprječava horizontalno pomicanje */
     }
     .container {
       max-width: 800px;
-      margin: 20px auto;
-      padding: 10px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .heart {
+      color: black;
+      font-size: 40px;
+      margin: 10px;
     }
     video {
       width: 100%;
       max-width: 700px;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
     iframe {
       margin-top: 30px;
       width: 100%;
       max-width: 700px;
-      height: 900px;
+      height: 600px;
       border: none;
+      border-radius: 12px;
+    }
+    .heart-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .heart-container .heart {
+      margin: 5px;
     }
   </style>
 </head>
 <body>
+  <div class="heart-container">
+    <!-- Crna srca oko sadržaja -->
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+  </div>
+  
   <div class="container">
-    <!-- Video player that auto-plays -->
-    <video controls autoplay>
+    <!-- Video player s automatskim pokretanjem -->
+    <video controls autoplay muted>
       <source src="video.mp4" type="video/mp4">
       Vaš preglednik ne podržava video prikaz.
     </video>
+    
     <!-- Google Form -->
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdIlJpMqOHa2Fo6y-Bxcb3rnR8bI2nOJ97ShpChBglK_tsDYg/viewform?embedded=true">Loading…</iframe>
+  </div>
+
+  <div class="heart-container">
+    <!-- Dodatna srca u dnu -->
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
   </div>
 </body>
 </html>
