@@ -5,48 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pozivnica – Iva & Emil</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Quicksand:wght@400;600&display=swap');
+
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fff;
-      color: #000;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #f9f5f0, #fdfaf7);
+      color: #4e3b2c;
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
+      overflow-x: hidden;
     }
 
     .container {
       max-width: 700px;
       width: 100%;
-      padding: 40px 20px;
-      text-align: center;
+      padding: 60px 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #3e2f23;
+      animation: fadeInUp 1s ease;
+    }
+
+    .heart {
+      font-size: 30px;
+      animation: heartBeat 1.5s ease infinite;
     }
 
     video {
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      margin-bottom: 50px;
+      animation: fadeInUp 1.5s ease;
     }
 
     form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
       display: flex;
       flex-direction: column;
       gap: 20px;
-      text-align: left;
+      animation: fadeInUp 1.5s ease;
     }
 
     label {
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 16px;
+      color: #3f3228;
+      text-align: left;
     }
 
     input[type="text"], button {
       padding: 12px;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
       width: 100%;
+      background-color: #fefefe;
+      transition: box-shadow 0.3s;
+    }
+
+    input[type="text"]:focus {
+      box-shadow: 0 0 6px rgba(200, 170, 120, 0.4);
+      outline: none;
     }
 
     .radio-group {
@@ -63,7 +95,7 @@
     }
 
     button {
-      background-color: black;
+      background-color: #a18875;
       color: white;
       cursor: pointer;
       border: none;
@@ -71,20 +103,78 @@
     }
 
     button:hover {
-      background-color: #333;
+      background-color: #927361;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes heartBeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Custom thank you message */
+    .thank-you {
+      display: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #a18875;
+      margin-top: 20px;
+    }
+
+    .thank-you.active {
+      display: block;
+    }
+
+    /* Heart decoration */
+    .heart-decoration {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 4rem;
+      animation: heartBeat 2s infinite;
+    }
+
+    /* Light background color heart */
+    .light-background .heart-decoration {
+      color: #fff; /* White hearts for light backgrounds */
+    }
+
+    /* Dark background color heart */
+    .dark-background .heart-decoration {
+      color: #333; /* Dark hearts for dark backgrounds */
     }
   </style>
 </head>
-<body>
+<body class="light-background">
   <div class="container">
+    <h1>Iva & Emil – Pozivnica</h1>
+
+    <!-- Decorative Heart -->
+    <div class="heart-decoration">&#10084;</div>
+
     <!-- Video -->
     <video autoplay muted controls>
       <source src="video.mp4" type="video/mp4" />
       Vaš preglednik ne podržava video prikaz.
     </video>
 
-    <!-- Forma -->
-    <form action="https://formspree.io/f/xgvkeoaj" method="POST">
+    <!-- Form -->
+    <form action="https://formspree.io/f/xgvkeoaj" method="POST" onsubmit="showThankYouMessage(event)">
       <label for="ime">Ime i prezime:</label>
       <input type="text" id="ime" name="Ime i prezime" required>
 
@@ -99,6 +189,26 @@
 
       <button type="submit">Pošalji</button>
     </form>
+
+    <!-- Thank You Message -->
+    <div class="thank-you" id="thank-you-message">Hvala na prijavi! Veselimo se vašem dolasku! 💖</div>
   </div>
+
+  <script>
+    function showThankYouMessage(event) {
+      event.preventDefault(); // Prevent form submission
+      document.querySelector('.thank-you').classList.add('active'); // Show thank you message
+    }
+
+    // JavaScript to dynamically switch heart color based on background
+    const bodyClass = document.body.classList;
+    const heartDecoration = document.querySelector('.heart-decoration');
+
+    if (bodyClass.contains('light-background')) {
+      heartDecoration.style.color = '#fff'; // white hearts for light background
+    } else if (bodyClass.contains('dark-background')) {
+      heartDecoration.style.color = '#333'; // dark hearts for dark background
+    }
+  </script>
 </body>
 </html>
