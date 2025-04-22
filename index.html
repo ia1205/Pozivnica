@@ -58,9 +58,10 @@
       margin-top: 30px;
       width: 100%;
       max-width: 700px;
-      height: 900px; /* Povećana visina da se vidi više sadržaja */
+      height: 1500px; /* Povećana visina da se sve vidi bez scrollanja */
       border: none;
       border-radius: 12px;
+      overflow: hidden; /* Sakrije scroll bar unutar iframea */
     }
 
     @media (max-width: 768px) {
@@ -71,7 +72,7 @@
       }
 
       iframe {
-        height: 700px;
+        height: 1700px; /* Još više za mobilne ako je potrebno */
       }
     }
   </style>
@@ -89,7 +90,7 @@
       Vaš preglednik ne podržava video prikaz.
     </video>
 
-    <!-- Google Forms (sada dio normalnog skrola) -->
+    <!-- Google Forms (bez unutarnjeg scrollanja) -->
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdIlJpMqOHa2Fo6y-Bxcb3rnR8bI2nOJ97ShpChBglK_tsDYg/viewform?embedded=true">Loading…</iframe>
   </div>
 
