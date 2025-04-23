@@ -10,35 +10,25 @@
       margin: 0;
       padding: 0;
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom, #f4f0e4, #e9ded2);
+      background: linear-gradient(to bottom, #fdfaf6, #f3e8dc);
       color: #2d2d2d;
       overflow-x: hidden;
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
 
     .container {
       max-width: 700px;
-      width: 100%;
+      margin: auto;
       padding: 60px 20px 100px;
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
 
     h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 4rem;
-      color: #6b4f2e; /* Smeđa nijansa */
-      margin-bottom: 20px;
-      animation: fadeInDown 1s ease-out;
-    }
-
-    p.intro {
-      display: none;
+      color: #4b3b2a;
+      margin-bottom: 40px;
+      animation: fadeInDown 0.5s ease-out;
     }
 
     video {
@@ -49,55 +39,63 @@
     }
 
     form {
-      background-color: #fff;
+      background-color: #fffaf5;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
-      gap: 20px;
       align-items: center;
-      animation: fadeIn 2s ease;
+      gap: 20px;
+      animation: fadeIn 0.7s ease;
     }
 
     label {
       font-weight: 600;
       font-size: 16px;
-      text-align: left;
-      color: #6b4f2e;
+      text-align: center;
+      color: #3d2b1f;
       width: 100%;
     }
 
     input[type="text"], button {
       padding: 12px;
       font-size: 16px;
-      border: 1px solid #ccc;
+      border: 1px solid #d4c1aa;
       border-radius: 8px;
       width: 100%;
+      max-width: 400px;
       background-color: #fdfdfd;
     }
 
     .radio-group {
       display: flex;
+      justify-content: center;
       gap: 20px;
       width: 100%;
     }
 
+    .radio-group label {
+      font-weight: 600;
+      color: #4b3b2a;
+    }
+
     button {
-      background-color: #333;
+      background-color: #4b3b2a;
       color: white;
       cursor: pointer;
       transition: 0.3s;
     }
 
     button:hover {
-      background-color: #555;
+      background-color: #6d5640;
     }
 
     .thank-you {
       display: none;
       font-size: 1.4rem;
       margin-top: 20px;
+      color: #4b3b2a;
     }
 
     .thank-you.active {
@@ -118,32 +116,11 @@
     /* Floating hearts */
     .heart {
       position: absolute;
-      font-size: 30px;
+      font-size: 24px;
       color: white;
-      animation: float 8s infinite ease-in-out;
+      animation: float 5s infinite ease-in-out;
       opacity: 0.3;
     }
-
-    .heart:nth-child(1) { top: 5%; left: 10%; animation-delay: 0s; }
-    .heart:nth-child(2) { top: 10%; right: 15%; animation-delay: 2s; }
-    .heart:nth-child(3) { top: 20%; left: 30%; animation-delay: 4s; }
-    .heart:nth-child(4) { bottom: 15%; right: 20%; animation-delay: 6s; }
-    .heart:nth-child(5) { top: 30%; left: 60%; animation-delay: 0s; }
-    .heart:nth-child(6) { top: 50%; left: 20%; animation-delay: 2s; }
-    .heart:nth-child(7) { top: 40%; right: 30%; animation-delay: 4s; }
-    .heart:nth-child(8) { top: 60%; right: 5%; animation-delay: 6s; }
-    .heart:nth-child(9) { bottom: 10%; left: 40%; animation-delay: 8s; }
-    .heart:nth-child(10) { top: 10%; left: 50%; animation-delay: 10s; }
-    .heart:nth-child(11) { top: 15%; left: 80%; animation-delay: 1s; }
-    .heart:nth-child(12) { top: 35%; right: 70%; animation-delay: 3s; }
-    .heart:nth-child(13) { bottom: 5%; left: 70%; animation-delay: 5s; }
-    .heart:nth-child(14) { top: 45%; left: 20%; animation-delay: 7s; }
-    .heart:nth-child(15) { bottom: 20%; right: 60%; animation-delay: 9s; }
-    .heart:nth-child(16) { top: 25%; left: 60%; animation-delay: 11s; }
-    .heart:nth-child(17) { bottom: 40%; right: 10%; animation-delay: 13s; }
-    .heart:nth-child(18) { top: 50%; left: 35%; animation-delay: 15s; }
-    .heart:nth-child(19) { top: 20%; left: 75%; animation-delay: 17s; }
-    .heart:nth-child(20) { bottom: 30%; left: 50%; animation-delay: 19s; }
 
     @keyframes float {
       0% { transform: translateY(0px); opacity: 0.3; }
@@ -155,26 +132,19 @@
 <body>
 
   <!-- Floating white hearts -->
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
+  <!-- 20 random hearts with varied positions -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '&#10084;';
+      heart.style.top = Math.random() * 90 + '%';
+      heart.style.left = Math.random() * 90 + '%';
+      heart.style.fontSize = `${Math.random() * 20 + 20}px`;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      document.body.appendChild(heart);
+    }
+  </script>
 
   <div class="container">
     <h1>Pozivnica</h1>
@@ -226,8 +196,8 @@
       const form = event.target;
       const data = new FormData(form);
       const dolazak = data.get("Dolazak");
-      const msg = dolazak === "DA!" ? 
-        "Hvala na prijavi! Veselimo se vašem dolasku! 💌" : 
+      const msg = dolazak === "DA!" ?
+        "Hvala na prijavi! Veselimo se vašem dolasku! 💌" :
         "Hvala vam! Žao nam je što nećete biti s nama. 💭";
 
       fetch(form.action, {
