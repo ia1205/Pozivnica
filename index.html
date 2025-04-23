@@ -32,11 +32,7 @@
     }
 
     p.intro {
-      font-size: 1.3rem;
-      color: #4b3f2f; /* Tamno bež nijansa */
-      max-width: 600px;
-      margin: 0 auto 40px;
-      animation: fadeIn 1.5s ease;
+      display: none;
     }
 
     video {
@@ -113,7 +109,7 @@
     /* Floating hearts */
     .heart {
       position: absolute;
-      font-size: 24px;
+      font-size: 30px;
       color: white;
       animation: float 8s infinite ease-in-out;
       opacity: 0.3;
@@ -123,6 +119,12 @@
     .heart:nth-child(2) { top: 10%; right: 15%; animation-delay: 2s; }
     .heart:nth-child(3) { top: 20%; left: 30%; animation-delay: 4s; }
     .heart:nth-child(4) { bottom: 15%; right: 20%; animation-delay: 6s; }
+    .heart:nth-child(5) { top: 30%; left: 60%; animation-delay: 0s; }
+    .heart:nth-child(6) { top: 50%; left: 20%; animation-delay: 2s; }
+    .heart:nth-child(7) { top: 40%; right: 30%; animation-delay: 4s; }
+    .heart:nth-child(8) { top: 60%; right: 5%; animation-delay: 6s; }
+    .heart:nth-child(9) { bottom: 10%; left: 40%; animation-delay: 8s; }
+    .heart:nth-child(10) { top: 10%; left: 50%; animation-delay: 10s; }
 
     @keyframes float {
       0% { transform: translateY(0px); opacity: 0.3; }
@@ -138,14 +140,15 @@
   <div class="heart">&#10084;</div>
   <div class="heart">&#10084;</div>
   <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
 
   <div class="container">
     <h1>Pozivnica</h1>
-    <p class="intro">
-      Dragi naši,<br/>
-      S velikim uzbuđenjem vas pozivamo da s nama podijelite jedan od najvažnijih dana u našim životima.<br/>
-      Veselimo se vašem dolasku!
-    </p>
 
     <video autoplay muted controls playsinline>
       <source src="video.mp4" type="video/mp4">
@@ -215,3 +218,4 @@
 
 </body>
 </html>
+
