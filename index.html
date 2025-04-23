@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom, #fff, #f6f6f6);
+      background: linear-gradient(to bottom, #f4f0e4, #e9ded2);
       color: #2d2d2d;
       overflow-x: hidden;
       position: relative;
@@ -25,13 +25,15 @@
 
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
-      margin-bottom: 10px;
+      font-size: 4rem;
+      color: #6b4f2e; /* Smeđa nijansa */
+      margin-bottom: 20px;
       animation: fadeInDown 1s ease-out;
     }
 
     p.intro {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      color: #4b3f2f; /* Tamno bež nijansa */
       max-width: 600px;
       margin: 0 auto 40px;
       animation: fadeIn 1.5s ease;
@@ -59,6 +61,7 @@
       font-weight: 600;
       font-size: 16px;
       text-align: left;
+      color: #6b4f2e;
     }
 
     input[type="text"], button {
@@ -191,8 +194,8 @@
       const form = event.target;
       const data = new FormData(form);
       const dolazak = data.get("Dolazak");
-      const msg = dolazak === "DA!" ?
-        "Hvala na prijavi! Veselimo se vašem dolasku! 💌" :
+      const msg = dolazak === "DA!" ? 
+        "Hvala na prijavi! Veselimo se vašem dolasku! 💌" : 
         "Hvala vam! Žao nam je što nećete biti s nama. 💭";
 
       fetch(form.action, {
