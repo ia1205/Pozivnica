@@ -14,13 +14,19 @@
       color: #2d2d2d;
       overflow-x: hidden;
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     .container {
       max-width: 700px;
-      margin: auto;
+      width: 100%;
       padding: 60px 20px 100px;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -50,6 +56,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      align-items: center;
       animation: fadeIn 2s ease;
     }
 
@@ -58,6 +65,7 @@
       font-size: 16px;
       text-align: left;
       color: #6b4f2e;
+      width: 100%;
     }
 
     input[type="text"], button {
@@ -72,6 +80,7 @@
     .radio-group {
       display: flex;
       gap: 20px;
+      width: 100%;
     }
 
     button {
@@ -125,6 +134,16 @@
     .heart:nth-child(8) { top: 60%; right: 5%; animation-delay: 6s; }
     .heart:nth-child(9) { bottom: 10%; left: 40%; animation-delay: 8s; }
     .heart:nth-child(10) { top: 10%; left: 50%; animation-delay: 10s; }
+    .heart:nth-child(11) { top: 15%; left: 80%; animation-delay: 1s; }
+    .heart:nth-child(12) { top: 35%; right: 70%; animation-delay: 3s; }
+    .heart:nth-child(13) { bottom: 5%; left: 70%; animation-delay: 5s; }
+    .heart:nth-child(14) { top: 45%; left: 20%; animation-delay: 7s; }
+    .heart:nth-child(15) { bottom: 20%; right: 60%; animation-delay: 9s; }
+    .heart:nth-child(16) { top: 25%; left: 60%; animation-delay: 11s; }
+    .heart:nth-child(17) { bottom: 40%; right: 10%; animation-delay: 13s; }
+    .heart:nth-child(18) { top: 50%; left: 35%; animation-delay: 15s; }
+    .heart:nth-child(19) { top: 20%; left: 75%; animation-delay: 17s; }
+    .heart:nth-child(20) { bottom: 30%; left: 50%; animation-delay: 19s; }
 
     @keyframes float {
       0% { transform: translateY(0px); opacity: 0.3; }
@@ -136,6 +155,16 @@
 <body>
 
   <!-- Floating white hearts -->
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
   <div class="heart">&#10084;</div>
   <div class="heart">&#10084;</div>
   <div class="heart">&#10084;</div>
@@ -218,4 +247,3 @@
 
 </body>
 </html>
-
