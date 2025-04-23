@@ -136,20 +136,53 @@
       100% { transform: translateY(0px); opacity: 0.3; }
     }
 
-    /* 30 floating hearts on left/right edges */
-    ${[...Array(30)].map((_, i) => {
-      const side = i % 2 === 0 ? 'left' : 'right';
-      const offset = Math.floor(Math.random() * 80) + 5;
-      const position = i < 15 ? 'top' : 'bottom';
-      const delay = (i * 0.4).toFixed(1);
-      return `.heart:nth-child(${i + 1}) { ${position}: ${offset}%; ${side}: 1%; animation-delay: ${delay}s; }`;
-    }).join('\n    ')}
+    /* Prilagođene pozicije za 30 srca */
+    .heart:nth-child(1) { top: 5%; left: 2%; animation-delay: 0s; }
+    .heart:nth-child(2) { top: 10%; right: 2%; animation-delay: 0.2s; }
+    .heart:nth-child(3) { top: 20%; left: 1%; animation-delay: 0.4s; }
+    .heart:nth-child(4) { bottom: 15%; right: 3%; animation-delay: 0.6s; }
+    .heart:nth-child(5) { top: 25%; right: 1%; animation-delay: 0.8s; }
+    .heart:nth-child(6) { bottom: 10%; left: 1%; animation-delay: 1s; }
+    .heart:nth-child(7) { top: 15%; left: 3%; animation-delay: 1.2s; }
+    .heart:nth-child(8) { bottom: 5%; right: 3%; animation-delay: 1.4s; }
+    .heart:nth-child(9) { top: 8%; left: 1%; animation-delay: 1.6s; }
+    .heart:nth-child(10) { bottom: 25%; right: 2%; animation-delay: 1.8s; }
+    .heart:nth-child(11) { top: 50%; left: 2%; animation-delay: 2s; }
+    .heart:nth-child(12) { bottom: 30%; right: 1%; animation-delay: 2.2s; }
+    .heart:nth-child(13) { top: 60%; left: 3%; animation-delay: 2.4s; }
+    .heart:nth-child(14) { top: 35%; right: 1%; animation-delay: 2.6s; }
+    .heart:nth-child(15) { bottom: 60%; left: 2%; animation-delay: 2.8s; }
+    .heart:nth-child(16) { bottom: 55%; right: 3%; animation-delay: 3s; }
+    .heart:nth-child(17) { top: 42%; left: 1%; animation-delay: 3.2s; }
+    .heart:nth-child(18) { bottom: 20%; right: 2%; animation-delay: 3.4s; }
+    .heart:nth-child(19) { top: 65%; left: 2%; animation-delay: 3.6s; }
+    .heart:nth-child(20) { bottom: 40%; right: 3%; animation-delay: 3.8s; }
+    .heart:nth-child(21) { top: 70%; left: 3%; animation-delay: 4s; }
+    .heart:nth-child(22) { bottom: 35%; right: 1%; animation-delay: 4.2s; }
+    .heart:nth-child(23) { top: 12%; left: 2%; animation-delay: 4.4s; }
+    .heart:nth-child(24) { top: 18%; right: 2%; animation-delay: 4.6s; }
+    .heart:nth-child(25) { bottom: 12%; left: 1%; animation-delay: 4.8s; }
+    .heart:nth-child(26) { bottom: 18%; right: 1%; animation-delay: 5s; }
+    .heart:nth-child(27) { top: 28%; left: 1%; animation-delay: 5.2s; }
+    .heart:nth-child(28) { bottom: 28%; right: 2%; animation-delay: 5.4s; }
+    .heart:nth-child(29) { top: 38%; left: 3%; animation-delay: 5.6s; }
+    .heart:nth-child(30) { bottom: 38%; right: 2%; animation-delay: 5.8s; }
 
   </style>
 </head>
 <body>
 
-  ${[...Array(30)].map(() => `<div class="heart">&#10084;</div>`).join('\n  ')}
+  <!-- 30 floating hearts -->
+  <div class="heart">&#10084;</div><div class="heart">&#10084;</div><div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div><div class="heart">&#10084;</div><div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div><div class="heart">&#10084;</div><div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div><div class="heart">&#10084;</div><div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div><div class="heart">&#10084;</div><div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div><div class="heart">&#10084;</div><div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div><div class="heart">&#10084;</div><div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div><div class="heart">&#10084;</div><div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div><div class="heart">&#10084;</div><div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div><div class="heart">&#10084;</div>
 
   <div class="container">
     <h1>Pozivnica</h1>
@@ -170,59 +203,4 @@
         <div class="radio-group">
           <label><input type="radio" name="Dolazak" value="DA!" required onclick="toggleGosti(true)"> DA!</label>
           <label><input type="radio" name="Dolazak" value="Nažalost, ne" onclick="toggleGosti(false)"> Nažalost, ne</label>
-        </div>
-      </div>
-
-      <div class="form-field" id="gosti-section">
-        <label for="gosti">Tko dolazi s tobom?</label>
-        <input type="text" id="gosti" name="Tko dolazi s tobom?">
-      </div>
-
-      <button type="submit">Pošalji</button>
-    </form>
-
-    <div class="thank-you" id="thank-you-message">
-      <span id="response-msg">Hvala na prijavi! Veselimo se vašem dolasku! 💌</span>
-    </div>
-  </div>
-
-  <script>
-    function toggleGosti(show) {
-      const gostiInput = document.getElementById("gosti");
-      const gostiSection = document.getElementById("gosti-section");
-
-      if (show) {
-        gostiSection.style.display = "block";
-        gostiInput.required = true;
-      } else {
-        gostiSection.style.display = "none";
-        gostiInput.required = false;
-      }
-    }
-
-    function handleSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-      const data = new FormData(form);
-      const dolazak = data.get("Dolazak");
-      const msg = dolazak === "DA!" ?
-        "Hvala na prijavi! Veselimo se vašem dolasku! 💌" :
-        "Hvala vam! Žao nam je što nećete biti s nama. 💭";
-
-      fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(() => {
-        form.style.display = "none";
-        const msgBox = document.getElementById("thank-you-message");
-        document.getElementById("response-msg").innerText = msg;
-        msgBox.classList.add("active");
-      });
-    }
-  </script>
-
-</body>
-</html>
+        </
