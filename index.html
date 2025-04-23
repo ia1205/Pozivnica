@@ -4,157 +4,162 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pozivnica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville&family=Quicksand:wght@400;600&family=Parisienne&display=swap');
-
     body {
       margin: 0;
       padding: 0;
       font-family: 'Quicksand', sans-serif;
-      background: #f8f8f8;
-      color: #2f2f2f;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
+      background: linear-gradient(to bottom, #fff, #f6f6f6);
+      color: #2d2d2d;
       overflow-x: hidden;
+      position: relative;
     }
 
     .container {
       max-width: 700px;
-      padding: 60px 20px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      z-index: 10;
-      position: relative;
+      margin: auto;
+      padding: 60px 20px 100px;
+      text-align: center;
     }
 
     h1 {
-      font-family: 'Parisienne', cursive;
-      font-size: 3rem;
-      color: #3e2f23;
-      margin-bottom: 40px;
-      animation: fadeInDown 1.5s ease;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease-out;
     }
 
-    .invitation-card {
-      background: white;
-      padding: 40px 30px;
-      border-radius: 20px;
+    p.intro {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 40px;
       animation: fadeIn 1.5s ease;
     }
 
-    .names {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      color: #000;
-      margin-bottom: 20px;
+    video {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
     }
 
-    .heart {
-      font-size: 2rem;
-      color: #d6d6d6;
-      animation: heartBeat 3s infinite;
-    }
-
-    .quote {
-      font-style: italic;
-      font-size: 1.2rem;
-      color: #555;
-      margin: 20px 0;
-    }
-
-    .date {
-      font-weight: bold;
-      font-size: 1.5rem;
-      margin: 30px 0;
-      color: #000;
-    }
-
-    .timeline {
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      align-items: center;
+      gap: 20px;
+      animation: fadeIn 2s ease;
     }
 
-    .event {
+    label {
+      font-weight: 600;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    input[type="text"], button {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 100%;
+      background-color: #fdfdfd;
+    }
+
+    .radio-group {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.1rem;
-      color: #3e2f23;
+      gap: 20px;
     }
 
-    .floating-heart {
-      position: absolute;
-      font-size: 40px;
-      color: #fff;
-      opacity: 0.3;
-      animation: float 12s infinite ease-in-out;
-      z-index: 0;
+    button {
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .floating-heart:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-    .floating-heart:nth-child(2) { top: 40%; right: 10%; animation-delay: 2s; }
-    .floating-heart:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s; }
-    .floating-heart:nth-child(4) { top: 20%; right: 5%; animation-delay: 6s; }
-    .floating-heart:nth-child(5) { bottom: 5%; left: 50%; animation-delay: 8s; }
+    button:hover {
+      background-color: #555;
+    }
 
-    @keyframes heartBeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+    .thank-you {
+      display: none;
+      font-size: 1.4rem;
+      margin-top: 20px;
+    }
+
+    .thank-you.active {
+      display: block;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      color: white;
+      animation: float 8s infinite ease-in-out;
+      opacity: 0.3;
+    }
+
+    .heart:nth-child(1) { top: 5%; left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { top: 10%; right: 15%; animation-delay: 2s; }
+    .heart:nth-child(3) { top: 20%; left: 30%; animation-delay: 4s; }
+    .heart:nth-child(4) { bottom: 15%; right: 20%; animation-delay: 6s; }
+
     @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-40px); }
-      100% { transform: translateY(0px); }
+      0% { transform: translateY(0px); opacity: 0.3; }
+      50% { transform: translateY(-20px); opacity: 0.6; }
+      100% { transform: translateY(0px); opacity: 0.3; }
     }
   </style>
 </head>
 <body>
-  <div class="floating-heart">♡</div>
-  <div class="floating-heart">♡</div>
-  <div class="floating-heart">♡</div>
-  <div class="floating-heart">♡</div>
-  <div class="floating-heart">♡</div>
+
+  <!-- Floating white hearts -->
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
+  <div class="heart">&#10084;</div>
 
   <div class="container">
     <h1>Pozivnica</h1>
+    <p class="intro">
+      Dragi naši,<br/>
+      S velikim uzbuđenjem vas pozivamo da s nama podijelite jedan od najvažnijih dana u našim životima.<br/>
+      Veselimo se vašem dolasku!
+    </p>
 
-    <div class="invitation-card">
-      <div class="names">Iva <span class="heart">♡</span> Emil</div>
-      <p class="quote">S vjerom u srcu i ljubavi koja nas vodi,<br>pozivamo vas da s nama stvarate uspomene.</p>
-      <p class="date">20. RUJNA 2025.</p>
-      <div class="timeline">
-        <div class="event"><strong>15:30</strong> – Okupljanje, Stari Mornar</div>
-        <div class="event"><strong>18:00</strong> – Misa, Crkva sv. Marka (Neslanovac)</div>
-        <div class="event"><strong>20:00</strong> – Večera i slavlje, Paviljon Idra</div>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
- <!-- Forma -->
-    <form action="https://formspree.io/f/xdkgoerv" method="POST" onsubmit="showThankYouMessage(event)">
+    <video autoplay muted controls playsinline>
+      <source src="video.mp4" type="video/mp4">
+      Vaš preglednik ne podržava prikaz videa.
+    </video>
+
+    <form action="https://formspree.io/f/xdkgoerv" method="POST" onsubmit="return handleSubmit(event)">
       <label for="ime">Ime i prezime:</label>
       <input type="text" id="ime" name="Ime i prezime" required>
 
       <label>Dolazak:</label>
       <div class="radio-group">
-        <label><input type="radio" name="Dolazak" value="DA!" required onchange="toggleGuests(true)"> DA!</label>
-        <label><input type="radio" name="Dolazak" value="Nažalost, ne" onchange="toggleGuests(false)"> Nažalost, ne</label>
+        <label><input type="radio" name="Dolazak" value="DA!" required onclick="toggleGosti(true)"> DA!</label>
+        <label><input type="radio" name="Dolazak" value="Nažalost, ne" onclick="toggleGosti(false)"> Nažalost, ne</label>
       </div>
 
-      <div id="gostiDiv">
+      <div id="gosti-section">
         <label for="gosti">Tko dolazi s tobom?</label>
         <input type="text" id="gosti" name="Tko dolazi s tobom?">
       </div>
@@ -162,26 +167,48 @@
       <button type="submit">Pošalji</button>
     </form>
 
-    <div class="thank-you" id="thank-you-message">Hvala na odgovoru! 💌</div>
+    <div class="thank-you" id="thank-you-message">
+      <span id="response-msg">Hvala na prijavi! Veselimo se vašem dolasku! 💌</span>
+    </div>
   </div>
 
   <script>
-    function showThankYouMessage(event) {
+    function toggleGosti(show) {
+      const gostiInput = document.getElementById("gosti");
+      const gostiSection = document.getElementById("gosti-section");
+
+      if (show) {
+        gostiSection.style.display = "block";
+        gostiInput.required = true;
+      } else {
+        gostiSection.style.display = "none";
+        gostiInput.required = false;
+      }
+    }
+
+    function handleSubmit(event) {
       event.preventDefault();
-      document.querySelector('form').style.display = 'none';
-      document.getElementById('thank-you-message').classList.add('active');
-    }
+      const form = event.target;
+      const data = new FormData(form);
+      const dolazak = data.get("Dolazak");
+      const msg = dolazak === "DA!" ?
+        "Hvala na prijavi! Veselimo se vašem dolasku! 💌" :
+        "Hvala vam! Žao nam je što nećete biti s nama. 💭";
 
-    function toggleGuests(show) {
-      const div = document.getElementById('gostiDiv');
-      const input = document.getElementById('gosti');
-      div.style.display = show ? 'block' : 'none';
-      input.required = show;
+      fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(() => {
+        form.style.display = "none";
+        const msgBox = document.getElementById("thank-you-message");
+        document.getElementById("response-msg").innerText = msg;
+        msgBox.classList.add("active");
+      });
     }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      toggleGuests(false); // sakrij na početku
-    });
   </script>
+
 </body>
 </html>
