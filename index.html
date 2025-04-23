@@ -84,8 +84,7 @@
     }
 
     button {
-      width: 100%;
-      max-width: 400px;
+      width: 160px;
       padding: 12px;
       font-size: 16px;
       border: none;
@@ -95,6 +94,7 @@
       cursor: pointer;
       transition: 0.3s;
       margin-top: 10px;
+      align-self: center;
     }
 
     button:hover {
@@ -112,7 +112,6 @@
       display: block;
     }
 
-    /* Animation Keyframes */
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
@@ -123,7 +122,6 @@
       to {opacity: 1; transform: translateY(0);}
     }
 
-    /* Floating hearts */
     .heart {
       position: absolute;
       font-size: 24px;
@@ -138,52 +136,20 @@
       100% { transform: translateY(0px); opacity: 0.3; }
     }
 
-    /* Generate 20 hearts with randomized positions */
-    .heart:nth-child(1)  { top: 5%; left: 5%; animation-delay: 0s; }
-    .heart:nth-child(2)  { top: 10%; left: 15%; animation-delay: 1s; }
-    .heart:nth-child(3)  { top: 15%; left: 30%; animation-delay: 2s; }
-    .heart:nth-child(4)  { top: 25%; left: 50%; animation-delay: 3s; }
-    .heart:nth-child(5)  { top: 20%; left: 75%; animation-delay: 4s; }
-    .heart:nth-child(6)  { top: 10%; right: 10%; animation-delay: 5s; }
-    .heart:nth-child(7)  { bottom: 20%; left: 15%; animation-delay: 6s; }
-    .heart:nth-child(8)  { bottom: 25%; right: 5%; animation-delay: 7s; }
-    .heart:nth-child(9)  { bottom: 15%; right: 20%; animation-delay: 8s; }
-    .heart:nth-child(10) { bottom: 5%; left: 10%; animation-delay: 9s; }
-    .heart:nth-child(11) { top: 30%; right: 15%; animation-delay: 2.2s; }
-    .heart:nth-child(12) { top: 40%; left: 40%; animation-delay: 3.4s; }
-    .heart:nth-child(13) { top: 50%; right: 40%; animation-delay: 1.1s; }
-    .heart:nth-child(14) { top: 60%; left: 60%; animation-delay: 4.7s; }
-    .heart:nth-child(15) { top: 70%; right: 30%; animation-delay: 3.5s; }
-    .heart:nth-child(16) { bottom: 30%; left: 20%; animation-delay: 2.6s; }
-    .heart:nth-child(17) { bottom: 40%; right: 10%; animation-delay: 1.8s; }
-    .heart:nth-child(18) { bottom: 50%; left: 50%; animation-delay: 2.3s; }
-    .heart:nth-child(19) { bottom: 60%; right: 25%; animation-delay: 0.6s; }
-    .heart:nth-child(20) { bottom: 70%; left: 5%; animation-delay: 3.9s; }
+    /* 30 floating hearts on left/right edges */
+    ${[...Array(30)].map((_, i) => {
+      const side = i % 2 === 0 ? 'left' : 'right';
+      const offset = Math.floor(Math.random() * 80) + 5;
+      const position = i < 15 ? 'top' : 'bottom';
+      const delay = (i * 0.4).toFixed(1);
+      return `.heart:nth-child(${i + 1}) { ${position}: ${offset}%; ${side}: 1%; animation-delay: ${delay}s; }`;
+    }).join('\n    ')}
+
   </style>
 </head>
 <body>
 
-  <!-- Floating white hearts -->
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
-  <div class="heart">&#10084;</div>
+  ${[...Array(30)].map(() => `<div class="heart">&#10084;</div>`).join('\n  ')}
 
   <div class="container">
     <h1>Pozivnica</h1>
