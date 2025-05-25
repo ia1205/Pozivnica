@@ -154,13 +154,14 @@ body {
 }
 
 .envelope-content {
-  padding: 40px 60px;
+  max-width: 90%;
+  padding: 40px 30px;
   color: #4B3B2A;
   background: #fff;
   font-size: 2rem;
   text-align: center;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-sizing: border-box;
 }
 
 #envelope:hover .envelope-content {

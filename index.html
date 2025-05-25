@@ -69,16 +69,15 @@ setTimeout(() => {
 }, 0); // Vrijeme da animacija završi
 }
 
-  // Generira 27 srca
+// Generira 25 srca
 const heartContainer = document.getElementById("hearts-container");
 
-for (let i = 1; i <= 50; i++) {
+for (let i = 1; i <= 25; i++) {
   const heart = document.createElement("div");
   heart.classList.add("heart");
   heart.innerHTML = "&#10084;";
   heart.style.animationDelay = `${Math.random() * 5}s`;
 
-  // Približno isti položaji kao originalno (ali možeš dorađivati)
   const pos = Math.random() * 100;
   const side = Math.random() > 0.5 ? "left" : "right";
   const topOrBottom = Math.random() > 0.5 ? "top" : "bottom";
