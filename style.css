@@ -1,0 +1,176 @@
+body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #4B3B2A, #f6f1eb);
+
+      color: #f6f1eb;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 65px 25px 105px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      margin-bottom: 30px;
+      color: #f6f1eb;
+      animation: fadeInDown 0.6s ease-out;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+
+    form {
+      background-color: #f6f1eb;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 0.9s ease;
+    }
+
+    .form-field {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 600;
+      color: #3d2b1f;
+    }
+
+    input[type="text"] {
+    box-sizing: border-box;
+      width: 100%;
+      height: 40px;
+      padding-left: 12px;
+      font-size: 16px;
+      border: 1px solid #d4c1aa;
+      border-radius: 8px;
+      background-color: #fdfdfd;
+    }
+
+    input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #b29e87;
+    }
+
+    .radio-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 11px;
+    }
+
+    .radio-group label {
+      font-weight: 600;
+      color: #4b3b2a;
+    }
+
+    button {
+      width: 50%;
+      max-width: 400px;
+      padding: 13px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4b3b2a;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #6d5640;
+    }
+
+    .thank-you {
+      display: none;
+      font-size: 1.4rem;
+      margin-top: 20px;
+      color: #3d2b1f;
+    }
+
+    .thank-you.active {
+      display: block;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      color: white;
+      animation: float 9s infinite ease-in-out;
+      opacity: 0.3;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); opacity: 0.3; }
+      50% { transform: translateY(-20px); opacity: 0.6; }
+      100% { transform: translateY(0px); opacity: 0.3; }
+    }
+
+#envelope {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #4B3B2A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  font-family: 'Great Vibes', cursive;
+  transition: opacity 1s ease;
+}
+
+.envelope-content {
+  padding: 40px 60px;
+  color: #4B3B2A;
+  background: #fff;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#envelope:hover .envelope-content {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+    }
